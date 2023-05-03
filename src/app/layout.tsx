@@ -2,6 +2,9 @@ import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 import './globals.css';
 import { Nunito } from 'next/font/google';
+import ClientOnly from './components/ClientOnly';
+import RegisterModal from './components/Modals/RegisterModal';
+import ToasterProvider from '@/providers/ToasterProvider';
 
 export const metadata = {
   title: 'Airbnb',
@@ -17,10 +20,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const onClose = () => {};
   return (
     <html lang='en'>
       <body className={font.className}>
-        <Navbar />
+        <ClientOnly>
+          <ToasterProvider />
+          <RegisterModal />
+          <Navbar />
+        </ClientOnly>
+
         {children}
       </body>
     </html>
