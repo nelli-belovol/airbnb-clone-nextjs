@@ -1,9 +1,9 @@
+import bcrypt from 'bcrypt';
 import NextAuth, { AuthOptions } from 'next-auth';
-import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import CredentialsProvider from 'next-auth/providers/credentials';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
-import CredentialsProvider from 'next-auth/providers/credentials';
-import bcrypt from 'bcrypt';
+import { PrismaAdapter } from '@next-auth/prisma-adapter'; // работает только с версией 1.0.1
 
 import prisma from '@/app/libs/prismadb';
 
@@ -21,14 +21,14 @@ export const authOptions: AuthOptions = {
     CredentialsProvider({
       name: 'credentials',
       credentials: {
-        email: { label: 'email', type: 'email' },
+        email: { label: 'email', type: 'text' },
         password: { label: 'password', type: 'password' },
       },
-
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          throw new Error('invalid credentials');
+          throw new Error('Invalid credentials');
         }
+
         const user = await prisma.user.findUnique({
           where: {
             email: credentials.email,
@@ -36,15 +36,15 @@ export const authOptions: AuthOptions = {
         });
 
         if (!user || !user?.hashedPassword) {
-          throw new Error('invalid credentials');
+          throw new Error('Invalid credentials');
         }
 
-        const isCorrectpassword = await bcrypt.compare(
+        const isCorrectPassword = await bcrypt.compare(
           credentials.password,
           user.hashedPassword,
         );
 
-        if (!isCorrectpassword) {
+        if (!isCorrectPassword) {
           throw new Error('Invalid credentials');
         }
 
@@ -55,7 +55,6 @@ export const authOptions: AuthOptions = {
   pages: {
     signIn: '/',
   },
-
   debug: process.env.NODE_ENV === 'development',
   session: {
     strategy: 'jwt',
