@@ -5,5 +5,11 @@
   "trailingComma": "all",
   "printWidth": 80,
   "jsxSingleQuote": true,
-  "semi": true
+  "semi": true,
+  "plugins": [
+    "prettier-plugin-svelte",
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "pluginSearchDirs": false
 }

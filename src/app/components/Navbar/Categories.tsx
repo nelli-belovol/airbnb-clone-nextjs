@@ -1,6 +1,8 @@
 'use client';
 
-import { TbBeach, TbMountain, TbPool } from 'react-icons/tb';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { BsSnow } from 'react-icons/bs';
+import { FaSkiing } from 'react-icons/fa';
 import {
   GiBarn,
   GiBoatFishing,
@@ -12,13 +14,10 @@ import {
   GiWindmill,
 } from 'react-icons/gi';
 import { IoDiamond } from 'react-icons/io5';
-import { BsSnow } from 'react-icons/bs';
-import { FaSkiing } from 'react-icons/fa';
 import { MdOutlineVilla } from 'react-icons/md';
-import React from 'react';
-import Container from './Container';
-import CategoryBox from './CategoryBox';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { TbBeach, TbMountain, TbPool } from 'react-icons/tb';
+import CategoryBox from '../CategoryBox';
+import Container from '../Container';
 
 export const categories = [
   {
@@ -110,7 +109,7 @@ const Categories = () => {
   }
   return (
     <Container>
-      <div className='pt-4 flex flex-row items-center justify-between overflow-x-auto'>
+      <div className='flex flex-row items-center justify-between overflow-x-auto pt-4'>
         {categories.map((item) => (
           <CategoryBox
             key={item.label}
