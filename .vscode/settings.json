@@ -4,5 +4,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "cSpell.words": ["nextauth", "zustand"]
+  "cSpell.words": ["latlng", "nextauth", "zustand"],
+  "editor.formatOnSave": true,
+  "eslint.enable": true
 }
