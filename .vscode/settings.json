@@ -4,7 +4,16 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "cSpell.words": ["latlng", "nextauth", "prismadb", "zustand"],
+  "cSpell.words": [
+    "Favorited",
+    "latlng",
+    "nextauth",
+    "prismadb",
+    "zustand",
+    "версией",
+    "работает",
+    "только"
+  ],
   "editor.formatOnSave": true,
   "eslint.enable": true
 }
