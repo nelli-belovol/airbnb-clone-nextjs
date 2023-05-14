@@ -5,8 +5,7 @@ import ListingInfo from '@/app/components/Listings/ListingInfo';
 import ListingReservation from '@/app/components/Listings/ListingReservation';
 import { categories } from '@/app/components/Navbar/Categories';
 import useLoginModal from '@/app/hooks/useLoginModal';
-import { SafeListing, SafeUser } from '@/app/types';
-import { Reservation } from '@prisma/client';
+import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
 import axios from 'axios';
 import { differenceInCalendarDays, eachDayOfInterval } from 'date-fns';
 import { useRouter } from 'next/navigation';
@@ -26,7 +25,7 @@ interface ListingClientProps {
     user: SafeUser;
   };
   currentUser: SafeUser | null;
-  reservations?: Reservation[];
+  reservations?: SafeReservation[];
 }
 
 const ListingClient: React.FC<ListingClientProps> = ({
@@ -63,10 +62,10 @@ const ListingClient: React.FC<ListingClientProps> = ({
     setIsLoading(true);
     axios
       .post('/api/reservations', {
-        totalPrice,
+        listingId: listing?.id,
         startDate: dateRange.startDate,
         endDate: dateRange.endDate,
-        listing: listing?.id,
+        totalPrice,
       })
       .then(() => {
         toast.success('Listing reserved!');
