@@ -11,7 +11,7 @@ import HeartButton from '../HeartButton';
 
 interface ListingCardProps {
   data: SafeListing;
-  currentUser: SafeUser | null;
+  currentUser: SafeUser | null | undefined;
   reservation?: SafeReservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
