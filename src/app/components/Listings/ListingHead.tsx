@@ -1,5 +1,5 @@
 'use client';
-
+import React from "react";
 import useCountries from '@/app/hooks/useCountries';
 import { SafeUser } from '@/app/types';
 import Image from 'next/image';
@@ -38,7 +38,8 @@ const ListingHead: React.FC<ListingHeadProps> = ({
           className='w-full object-cover'
         />
         <div className='absolute right-5 top-5'>
-          <HeartButton listingId={id} currentUser={currentUser} />
+          <HeartButton listingId={id}
+            currentUser={currentUser} />
         </div>
       </div>
     </>

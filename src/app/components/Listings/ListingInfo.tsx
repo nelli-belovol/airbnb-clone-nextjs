@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { IconType } from 'react-icons';
 import Avatar from '../Avatar';
 import ListingCategory from './ListingCategory';
+import React from "react";
 
 const Map = dynamic(() => import('../Map'));
 
