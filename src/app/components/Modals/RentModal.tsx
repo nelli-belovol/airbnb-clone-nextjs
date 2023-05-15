@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use client';
 import useRentModal from '@/app/hooks/useRentModal';
 import { useMemo, useState } from 'react';
@@ -131,7 +132,8 @@ const RentModal = () => {
         '
       >
         {categories.map((item) => (
-          <div className='col-span-1' key={item.label}>
+          <div className='col-span-1'
+            key={item.label}>
             <CategoryInput
               onClick={(category) => setCustomValue('category', category)}
               selected={category === item.label}

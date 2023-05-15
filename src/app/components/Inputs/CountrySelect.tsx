@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 'use client';
 import useCountries from '@/app/hooks/useCountries';
 import { FlagIcon } from 'react-flag-kit';
 import Select from 'react-select';
+import React from "react";
 
 export type CountrySelectValue = {
   flag: string;
@@ -29,7 +31,8 @@ const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange }) => {
         onChange={(value) => onChange(value as CountrySelectValue)}
         formatOptionLabel={(option: any) => (
           <div className='flex flex-row items-center gap-3'>
-            <FlagIcon code={option.value} size={24} />
+            <FlagIcon code={option.value}
+              size={24} />
 
             {/* <div>{option.flag}</div> */}
             <div>

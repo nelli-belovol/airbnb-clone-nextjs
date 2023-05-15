@@ -1,4 +1,5 @@
 import prisma from '@/app/libs/prismadb';
+import { Listing } from '@prisma/client';
 
 export interface IListingsParams {
   userId?: string;
@@ -82,7 +83,7 @@ export default async function getListings(params: IListingsParams) {
       },
     });
 
-    const safeListings = listings.map((listing) => ({
+    const safeListings = listings.map((listing:Listing) => ({
       ...listing,
       createdAt: listing.createdAt.toISOString(),
     }));

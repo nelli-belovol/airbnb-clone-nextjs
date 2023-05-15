@@ -13,6 +13,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Range } from 'react-date-range';
 import { toast } from 'react-hot-toast';
 import ListingHead from '../../components/Listings/ListingHead';
+import React from "react";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -72,7 +73,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
         setDateRange(initialDateRange);
         router.push('/trips');
       })
-      .catch((error) => toast.error('Something went wrong'))
+      .catch(() => toast.error('Something went wrong'))
       .finally(() => {
         setIsLoading(false);
       });

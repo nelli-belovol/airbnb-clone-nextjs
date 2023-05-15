@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use client';
 
 import useCountries from '@/app/hooks/useCountries';
@@ -8,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
 import Button from '../Button';
 import HeartButton from '../HeartButton';
+import React from "react";
 
 interface ListingCardProps {
   data: SafeListing;
@@ -74,7 +76,8 @@ const ListingCard: React.FC<ListingCardProps> = ({
             className='h-full w-full object-cover transition group-hover:scale-110'
           />
           <div className='absolute right-3 top-3'>
-            <HeartButton listingId={data.id} currentUser={currentUser} />
+            <HeartButton listingId={data.id}
+              currentUser={currentUser} />
           </div>
         </div>
         <div className='text-lg font-semibold'>

@@ -1,10 +1,8 @@
 'use client';
 
-import React, { useCallback } from 'react';
-import axios from 'axios';
+import React, { useCallback,useState } from 'react';
 import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
-import { useState, useEffect } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import Modal from './Modal';
@@ -61,7 +59,8 @@ const LoginModal = () => {
 
   const bodyContent = (
     <div className='flex flex-col gap-4'>
-      <Heading title='Welcome back' subtitle='Login to your account!' />
+      <Heading title='Welcome back'
+        subtitle='Login to your account!' />
       <Input
         errors={errors}
         id='email'

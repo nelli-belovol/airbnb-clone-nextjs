@@ -10,7 +10,8 @@ const TripsPage = async () => {
   if (!currentUser) {
     return (
       <ClientOnly>
-        <EmptyState title='Unauthorized' subtitle='PLease login' />
+        <EmptyState title='Unauthorized'
+          subtitle='PLease login' />
       </ClientOnly>
     );
   }
@@ -30,7 +31,8 @@ const TripsPage = async () => {
 
   return (
     <ClientOnly>
-      <TripsClient reservations={reservations} currentUser={currentUser} />
+      <TripsClient reservations={reservations}
+        currentUser={currentUser} />
     </ClientOnly>
   );
 };

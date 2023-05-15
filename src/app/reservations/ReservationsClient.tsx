@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import Container from '../components/Container';
 import Heading from '../components/Heading';
@@ -30,7 +30,7 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
           toast.success('Reservation canceled');
           router.refresh();
         })
-        .catch((error: any) => toast.error('Something went wrong'))
+        .catch(() => toast.error('Something went wrong'))
         .finally(() => setDeletingId(''));
     },
     [router],
@@ -38,7 +38,8 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
 
   return (
     <Container>
-      <Heading title='Reservations' subtitle='Bookings on your properties' />
+      <Heading title='Reservations'
+        subtitle='Bookings on your properties' />
       <div className='mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'>
         {reservations.map((reservation) => (
           <ListingCard

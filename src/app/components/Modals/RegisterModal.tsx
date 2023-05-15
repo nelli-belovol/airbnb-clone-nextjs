@@ -41,7 +41,7 @@ const RegisterModal = () => {
         registerModal.onClose();
         toast.success('Signed in!');
       })
-      .catch((error) => toast.error('Something went wrong!'))
+      .catch(() => toast.error('Something went wrong!'))
       .finally(() => setIsLoading(false));
   };
 
@@ -52,7 +52,8 @@ const RegisterModal = () => {
 
   const bodyContent = (
     <div className='flex flex-col gap-4'>
-      <Heading title='Welcome to Airbnb' subtitle='Create an account!' />
+      <Heading title='Welcome to Airbnb'
+        subtitle='Create an account!' />
       <Input
         errors={errors}
         id='email'

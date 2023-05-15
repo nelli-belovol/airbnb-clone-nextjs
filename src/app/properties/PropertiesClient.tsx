@@ -1,11 +1,10 @@
 'use client';
 
+import { SafeListing, SafeUser } from '@/app/types';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { toast } from 'react-hot-toast';
-
-import { SafeListing, SafeUser } from '@/app/types';
 
 import Container from '@/app/components/Container';
 import Heading from '@/app/components/Heading';
@@ -45,7 +44,8 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
 
   return (
     <Container>
-      <Heading title='Properties' subtitle='List of your properties' />
+      <Heading title='Properties'
+        subtitle='List of your properties' />
       <div
         className='
           mt-10

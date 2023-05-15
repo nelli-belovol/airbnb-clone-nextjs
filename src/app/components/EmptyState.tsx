@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import Button from './Button';
 import Heading from './Heading';
+import React from 'react';
 
 interface EmptyStateProps {
   title?: string;
@@ -19,7 +20,9 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 
   return (
     <div className='flex h-[60vh] flex-col items-center justify-center gap-2'>
-      <Heading center title={title} subtitle={subtitle} />
+      <Heading center
+        title={title}
+        subtitle={subtitle} />
       <div className='mt-4 w-48'>
         {showReset && (
           <Button

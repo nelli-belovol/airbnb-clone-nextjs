@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use client';
 
 import { formatISO } from 'date-fns';
@@ -154,7 +155,8 @@ const SearchModal = () => {
   if (step === STEPS.INFO) {
     bodyContent = (
       <div className='flex flex-col gap-8'>
-        <Heading title='More information' subtitle='Find your perfect place!' />
+        <Heading title='More information'
+          subtitle='Find your perfect place!' />
         <Counter
           onChange={(value) => setGuestCount(value)}
           value={guestCount}

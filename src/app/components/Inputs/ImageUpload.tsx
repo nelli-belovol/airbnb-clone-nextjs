@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 'use client';
 
 import { CldUploadWidget } from 'next-cloudinary';
 import Image from 'next/image';
 import { useCallback } from 'react';
 import { TbPhotoPlus } from 'react-icons/tb';
+import React from "react";
 
 declare global {
   var cloudinary: any;
