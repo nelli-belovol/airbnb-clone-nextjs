@@ -13,7 +13,7 @@ import React from "react";
 
 interface ListingCardProps {
   data: SafeListing;
-  currentUser: SafeUser | null | undefined;
+  currentUser?: SafeUser | null ;
   reservation?: SafeReservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
